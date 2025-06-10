@@ -17,7 +17,11 @@ export default function RootLayout() {
         />
         <Stack.Screen 
           name="game_selection" 
-          options={{headerShown: false,}}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="wortbildkarten" 
+          options={{headerShown: false}}
         />
       </Stack>
     </SafeAreaProvider>

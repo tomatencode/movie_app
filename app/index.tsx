@@ -3,11 +3,15 @@ import { router } from "expo-router";
 import { useState } from "react";
 
 export default function Index() {
-  const [toggleStates, setToggleStates] = useState([
-    false, false, false,
-    false, false, false,
-    false, false, false
-  ]);
+  const options = [
+    "Dopplungen", "Dopplungen2", "ck_k",
+    "tz_z", "s_ss_ß", "e_ä_eu_äu",
+    "Komposita", "H", "Sch"
+  ];
+
+  const [toggleStates, setToggleStates] = useState(
+    Array(options.length).fill(false)
+  );
 
   const toggleButton = (index: number) => {
     const newStates = [...toggleStates];
@@ -16,14 +20,12 @@ export default function Index() {
   };
 
   const handleWeiterPress = () => {
-    const selectedOptions = toggleStates
-      .map((state, index) => state ? index + 1 : null)
-      .filter(index => index !== null);
+    const selectedOptions = options.filter((_, index) => toggleStates[index]);
 
     router.push({
       pathname: "/game_selection",
       params: {
-        selectedOptions: selectedOptions.join(',')
+        selectedOptions: selectedOptions
       }
     });
   };
@@ -55,7 +57,7 @@ export default function Index() {
                   onPress={() => toggleButton(index)}
                 >
                   <Text className={toggleStates[index] ? "text-white" : "text-black"}>
-                    Option {index + 1}
+                    {options[index]}
                   </Text>
                 </Pressable>
               ))}
@@ -71,7 +73,7 @@ export default function Index() {
                   onPress={() => toggleButton(index)}
                 >
                   <Text className={toggleStates[index] ? "text-white" : "text-black"}>
-                    Option {index + 1}
+                    {options[index]}
                   </Text>
                 </Pressable>
               ))}
@@ -87,7 +89,7 @@ export default function Index() {
                   onPress={() => toggleButton(index)}
                 >
                   <Text className={toggleStates[index] ? "text-white" : "text-black"}>
-                    Option {index + 1}
+                    {options[index]}
                   </Text>
                 </Pressable>
               ))}
