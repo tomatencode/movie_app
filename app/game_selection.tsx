@@ -35,11 +35,15 @@ const gameOptions: GameOption[] = [
 ];
 
 export default function GameSelection() {
-    // Update the type to reflect that we're working with string options
     const { selectedOptions } = useLocalSearchParams<{ selectedOptions: string }>();
-
     const [scrollEnabled, setScrollEnabled] = useState(false);
-
+    const screenHeight = Dimensions.get('window').height;
+    
+    // Use same constants as index for consistency
+    const VERTICAL_SPACING = 16;
+    const LOGO_SIZE = 150;
+    const TITLE_HEIGHT = 80;
+    
     const handleBackPress = () => {
         router.back();
     };
@@ -48,38 +52,35 @@ export default function GameSelection() {
         router.push({
             // @ts-ignore
             pathname: route,
-            params: {
-                selectedOptions
-            }
+            params: { selectedOptions }
         });
     };
 
     // Calculate the available height for the list
-    const screenHeight = Dimensions.get('window').height;
-    const topSpacing = 300;
-    const bottomSpacing = 100;
-    const availableHeight = screenHeight - topSpacing - bottomSpacing;
+    const availableHeight = screenHeight - (LOGO_SIZE + TITLE_HEIGHT + VERTICAL_SPACING * 3)/100;
 
     return (
         <View className="flex-1 p-4">
-            <View className="absolute top-4 left-1/2 -translate-x-1/2 z-10 items-center">
+            <View className="items-center">
+                {/* Logo */}
                 <Image
                     source={require("../assets/images/logo.png")}
-                    style={{ width: 150, height: 150 }}
+                    style={{ width: LOGO_SIZE, height: LOGO_SIZE }}
                     resizeMode="contain"
                 />
-                <Text className="text-5xl text-primary font-bold px-4 text-center">Wie willst du lernen?</Text>
-                <Text className="text-lg text-accent mt-2">
-                    Ausgewählt: {selectedOptions}
-                </Text>
+
+                {/* Title */}
+                <View style={{ height: TITLE_HEIGHT }} className="justify-center my-4">
+                    <Text className="text-5xl text-primary font-bold text-center">
+                        Wie willst du lernen?
+                    </Text>
+                    <Text className="text-lg text-accent mt-2 text-center">
+                        Ausgewählt: {selectedOptions}
+                    </Text>
+                </View>
             </View>
 
-            <View
-                style={{
-                    height: availableHeight,
-                    marginTop: 250
-                }}
-            >
+            <View style={{ height: availableHeight}}>
                 <ScrollView
                     className="px-2"
                     showsVerticalScrollIndicator={true}
@@ -92,7 +93,9 @@ export default function GameSelection() {
                     }}
                     scrollEnabled={scrollEnabled}
                 >
+                    {/* Rest of the game options code remains the same */}
                     {gameOptions.map((option) => (
+                        // ... existing game options code
                         <Pressable
                             key={option.id}
                             className="flex-row items-center bg-white rounded-xl p-4 mb-6 shadow-lg"

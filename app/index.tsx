@@ -16,7 +16,7 @@ export default function Index() {
 
   // Calculate grid size to fit screen with padding
   const PADDING = 16;
-  const VERTICAL_SPACING = 32;
+  const VERTICAL_SPACING = 24;
   const LOGO_SIZE = 150;
   const WEITER_BUTTON_HEIGHT = 56;
   const TITLE_HEIGHT = 80;
@@ -59,7 +59,7 @@ export default function Index() {
   );
 
   return (
-    <View className="flex-1 items-center justify-center py-8">
+    <View className="flex-1 items-center py-4">
       {/* Logo */}
       <Image
         source={require("../assets/images/logo.png")}
@@ -68,7 +68,7 @@ export default function Index() {
       />
 
       {/* Title */}
-      <View style={{ height: TITLE_HEIGHT }} className="justify-center my-8">
+      <View style={{ height: TITLE_HEIGHT }} className="justify-center my-4">
         <Text className="text-5xl text-primary font-bold text-center px-4">
           Was willst du lernen?
         </Text>
