@@ -3,7 +3,7 @@
     "name": "DieHeldenschule",
     "slug": "diehedenschule",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./assets/images/logo.png",
     "scheme": "movieapp",
     "userInterfaceStyle": "automatic",
@@ -13,10 +13,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+        "foregroundImage": "./assets/images/logo.png"
+      }
     },
     "web": {
       "bundler": "metro",
@@ -30,8 +28,7 @@
         {
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "resizeMode": "contain"
         }
       ]
     ],
