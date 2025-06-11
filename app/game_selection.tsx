@@ -75,7 +75,7 @@ export default function GameSelection() {
                         Wie willst du lernen?
                     </Text>
                     <Text className="text-lg text-accent mt-2 text-center">
-                        Ausgewählt: {selectedOptions}
+                        Themen: {selectedOptions}
                     </Text>
                 </View>
             </View>

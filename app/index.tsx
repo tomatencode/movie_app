@@ -14,6 +14,8 @@ export default function Index() {
     Array(options.length).fill(false)
   );
 
+  const hasSelectedTopics = toggleStates.some(state => state);
+
   // Calculate grid size to fit screen with padding
   const PADDING = 16;
   const VERTICAL_SPACING = 24;
@@ -87,12 +89,22 @@ export default function Index() {
 
       {/* Weiter Button */}
       <Pressable
-        className="bg-secondary px-8 py-4 rounded-xl mt-8"
-        style={{ height: WEITER_BUTTON_HEIGHT }}
-        onPress={handleWeiterPress}
+          className={`px-8 py-4 rounded-xl mt-8 ${
+              hasSelectedTopics ? 'bg-secondary' : 'bg-secondary/50'
+          }`}
+          style={{ height: WEITER_BUTTON_HEIGHT }}
+          onPress={hasSelectedTopics ? handleWeiterPress : undefined}
+          disabled={!hasSelectedTopics}
       >
-        <Text className="text-white text-lg font-semibold">Weiter</Text>
+        <Text
+            className={`text-lg font-semibold ${
+                hasSelectedTopics ? 'text-white' : 'text-gray-200'
+            }`}
+        >
+          Weiter
+        </Text>
       </Pressable>
+
     </View>
   );
 }
