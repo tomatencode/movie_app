@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Index() {
   const { width, height } = useWindowDimensions();
   const options = [
-    "dopplungen", "Dopplungen2", "ck_k",
+    "dopplungen", "Dopplungen2", "k_ck",
     "tz_z", "s_ss_ß", "e_ä_eu_äu",
     "Komposita", "H", "Sch"
   ];

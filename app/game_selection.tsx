@@ -23,7 +23,7 @@ const gameOptions: GameOption[] = [
         title: "Vorlesen",
         description: "Schreibe den vorgelesenen Satzt auf",
         image: require("../assets/images/logo.png"),
-        route: "/drag-drop" as const,
+        route: "/vorlesen" as const,
     },
     {
         id: 3,

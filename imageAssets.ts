@@ -1,11 +1,11 @@
 type ImageCategory = 
     | 'dopplungen'
     | 'Dopplungen2'
-    | 'ck_k' 
+    | 'k_ck'
     | 'tz_z' 
     | 's_ss_ß' 
     | 'e_ä_eu_äu' 
-    | 'komposita' 
+    | 'Komposita'
     | 'h' 
     | 'sch';
 
@@ -108,7 +108,34 @@ export const imageAssets: Record<ImageCategory, { [key: string]: any }> = {
         "Zirkus": require("./assets/images/Wordbildkarten/Dopplungen2/Zirkus.png"),
         "Zwergen": require("./assets/images/Wordbildkarten/Dopplungen2/Zwergen.png"),
     },
-    "ck_k": {
+    "k_ck": {
+        "Bank": require("./assets/images/Wordbildkarten/k_ck/Bank.png"),
+        "Besteck": require("./assets/images/Wordbildkarten/k_ck/Besteck.png"),
+        "Bettlaken": require("./assets/images/Wordbildkarten/k_ck/Bettlaken.png"),
+        "Block": require("./assets/images/Wordbildkarten/k_ck/Block.png"),
+        "Buckel": require("./assets/images/Wordbildkarten/k_ck/Buckel.png"),
+        "Dackel": require("./assets/images/Wordbildkarten/k_ck/Dackel.png"),
+        "Deckel": require("./assets/images/Wordbildkarten/k_ck/Deckel.png"),
+        "Drucker": require("./assets/images/Wordbildkarten/k_ck/Drucker.png"),
+        "Ecke": require("./assets/images/Wordbildkarten/k_ck/Ecke.png"),
+        "Fackel": require("./assets/images/Wordbildkarten/k_ck/Fackel.png"),
+        "Ferkel": require("./assets/images/Wordbildkarten/k_ck/Ferkel.png"),
+        "Fleck": require("./assets/images/Wordbildkarten/k_ck/Fleck.png"),
+        "Gecko": require("./assets/images/Wordbildkarten/k_ck/Gecko.png"),
+        "Geschenk": require("./assets/images/Wordbildkarten/k_ck/Geschenk.png"),
+        "Glocke": require("./assets/images/Wordbildkarten/k_ck/Glocke.png"),
+        "Haken": require("./assets/images/Wordbildkarten/k_ck/Haken.png"),
+        "Jacke": require("./assets/images/Wordbildkarten/k_ck/Jacke.png"),
+        "Küken": require("./assets/images/Wordbildkarten/k_ck/Küken.png"),
+        "Krake": require("./assets/images/Wordbildkarten/k_ck/Krake.png"),
+        "Kürcke": require("./assets/images/Wordbildkarten/k_ck/Krücke.png"),
+        "Locke": require("./assets/images/Wordbildkarten/k_ck/Locke.png"),
+        "Mücke": require("./assets/images/Wordbildkarten/k_ck/Mücke.png"),
+        "Perücke": require("./assets/images/Wordbildkarten/k_ck/Perücke.png"),
+        "Pickel": require("./assets/images/Wordbildkarten/k_ck/Pickel.png"),
+        "Rcken": require("./assets/images/Wordbildkarten/k_ck/Rcken.png"),
+        "Sack": require("./assets/images/Wordbildkarten/k_ck/Sack.png"),
+        "Schnecke": require("./assets/images/Wordbildkarten/k_ck/Schnecke.png"),
     },
     "tz_z": {
     },
@@ -116,11 +143,61 @@ export const imageAssets: Record<ImageCategory, { [key: string]: any }> = {
     },
     "e_ä_eu_äu": {
     },
-    "komposita": {
+    "Komposita": {
+        "Bügeleisen": require("./assets/images/Wordbildkarten/komposita/Bügeleisen.png"),
+        "Birnenbaum": require("./assets/images/Wordbildkarten/komposita/Birnenbaum.png"),
+        "Bratwurst": require("./assets/images/Wordbildkarten/komposita/Bratwurst.png"),
+        "Eichhrnchen": require("./assets/images/Wordbildkarten/komposita/Eichhrnchen.png"),
+        "Feuerwerk": require("./assets/images/Wordbildkarten/komposita/Feuerwerk.png"),
+        "Fingernagel": require("./assets/images/Wordbildkarten/komposita/Fingernagel.png"),
+        "Gartenschlauch": require("./assets/images/Wordbildkarten/komposita/Gartenschlauch.png"),
+        "Gurkensalat": require("./assets/images/Wordbildkarten/komposita/Gurkensalat.png"),
+        "Harfe": require("./assets/images/Wordbildkarten/komposita/Harfe.png"),
+        "Kalender": require("./assets/images/Wordbildkarten/komposita/Kalender.png"),
+        "Kaninchen": require("./assets/images/Wordbildkarten/komposita/Kaninchen.png"),
+        "Kinderwagen": require("./assets/images/Wordbildkarten/komposita/Kinderwagen.png"),
+        "Kirschen": require("./assets/images/Wordbildkarten/komposita/Kirschen.png"),
+        "Kleiderschrank": require("./assets/images/Wordbildkarten/komposita/Kleiderschrank.png"),
+        "Känguru": require("./assets/images/Wordbildkarten/komposita/Känguru.png"),
+        "Knopf": require("./assets/images/Wordbildkarten/komposita/Knopf.png"),
+        "Kragen": require("./assets/images/Wordbildkarten/komposita/Kragen.png"),
+        "Krankenschwester": require("./assets/images/Wordbildkarten/komposita/Krankenschwester.png"),
+        "Leuchtturm": require("./assets/images/Wordbildkarten/komposita/Leuchtturm.png"),
+        "Lichtschalter": require("./assets/images/Wordbildkarten/komposita/Lichtschalter.png"),
+        "Mandarine": require("./assets/images/Wordbildkarten/komposita/Mandarine.png"),
+        "Maulwurfhgel": require("./assets/images/Wordbildkarten/komposita/Maulwurfhgel.png"),
+        "Milchflasche": require("./assets/images/Wordbildkarten/komposita/Milchflasche.png"),
+        "Ostereiern": require("./assets/images/Wordbildkarten/komposita/Ostereiern.png"),
+        "Paprika": require("./assets/images/Wordbildkarten/komposita/Paprika.png"),
+        "Pflaster": require("./assets/images/Wordbildkarten/komposita/Pflaster.png"),
+        "Pinguin": require("./assets/images/Wordbildkarten/komposita/Pinguin.png"),
+        "Praline": require("./assets/images/Wordbildkarten/komposita/Praline.png"),
+        "Regenwolke": require("./assets/images/Wordbildkarten/komposita/Regenwolke.png"),
+        "Regenwurm": require("./assets/images/Wordbildkarten/komposita/Regenwurm.png"),
+        "Rutsche": require("./assets/images/Wordbildkarten/komposita/Rutsche.png"),
+        "Scheibenwischer": require("./assets/images/Wordbildkarten/komposita/Scheibenwischer.png"),
+        "Schnrsenkel": require("./assets/images/Wordbildkarten/komposita/Schnrsenkel.png"),
+        "Taschenlampe": require("./assets/images/Wordbildkarten/komposita/Taschenlampe.png"),
+        "Taschenrechner": require("./assets/images/Wordbildkarten/komposita/Taschenrechner.png"),
+        "Trompete": require("./assets/images/Wordbildkarten/komposita/Trompete.png"),
+        "Wespennest": require("./assets/images/Wordbildkarten/komposita/Wespennest.png"),
+
     },
     "h": {
     },
     "sch": {
+        "Schaf": require("./assets/images/Wordbildkarten/sch/Schaf.png"),
+        "Schal": require("./assets/images/Wordbildkarten/sch/Schal.png"),
+        "Schale": require("./assets/images/Wordbildkarten/sch/Schale.png"),
+        "Schaum": require("./assets/images/Wordbildkarten/sch/Schaum.png"),
+        "Schere": require("./assets/images/Wordbildkarten/sch/Schere.png"),
+        "Sple": require("./assets/images/Wordbildkarten/sch/Sple.png"),
+        "Spur": require("./assets/images/Wordbildkarten/sch/Spur.png"),
+        "Tafel": require("./assets/images/Wordbildkarten/sch/Tafel.png"),
+        "Tal": require("./assets/images/Wordbildkarten/sch/Tal.png"),
+        "Tor": require("./assets/images/Wordbildkarten/sch/Tor.png"),
+        "Tren": require("./assets/images/Wordbildkarten/sch/Tren.png"),
+
     }
 };
 
