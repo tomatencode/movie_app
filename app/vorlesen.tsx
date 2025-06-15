@@ -175,7 +175,9 @@ export default function Vorlesen() {
                             className="bg-accent px-8 py-4 rounded-xl translate-x-2"
                             onPress={() => handleTTS(true)}
                         >
-                            <Text className="text-white text-lg font-semibold">Lösung anzeigen</Text>
+                            <Text className="text-white text-lg font-semibold">
+                                {showingSolution ? "Lösung ausblenden" : "Lösung anzeigen"}
+                            </Text>
                         </Pressable>
                     )}
                 </View>

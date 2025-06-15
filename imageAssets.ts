@@ -1,4 +1,4 @@
-type ImageCategory = 
+export type ImageCategory = 
     | 'dopplungen'
     | 'Dopplungen2'
     | 'k_ck'
@@ -23,7 +23,7 @@ export const imageAssets: Record<ImageCategory, { [key: string]: any }> = {
         "Butter": require("./assets/images/Wordbildkarten/Dopplungen/Butter.png"),
         "Dogge": require("./assets/images/Wordbildkarten/Dopplungen/Dogge.png"),
         "Fell": require("./assets/images/Wordbildkarten/Dopplungen/Fell.png"),
-        "Flte": require("./assets/images/Wordbildkarten/Dopplungen/Flte.png"),
+        "Fölte": require("./assets/images/Wordbildkarten/Dopplungen/Flte.png"),
         "Gewitter": require("./assets/images/Wordbildkarten/Dopplungen/Gewitter.png"),
         "Giraffe": require("./assets/images/Wordbildkarten/Dopplungen/Giraffe.png"),
         "Gitarre": require("./assets/images/Wordbildkarten/Dopplungen/Gitarre.png"),
@@ -201,12 +201,6 @@ export const imageAssets: Record<ImageCategory, { [key: string]: any }> = {
     }
 };
 
-function isImageCategory(category: string): category is ImageCategory {
+export function isImageCategory(category: string): category is ImageCategory {
     return category in imageAssets;
-}
-
-export function getImagesForCategories(categories: string[]): any[] {
-    return categories
-        .filter(isImageCategory)
-        .flatMap(category => Object.values(imageAssets[category] || {}));
 }

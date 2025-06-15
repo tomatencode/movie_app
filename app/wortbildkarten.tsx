@@ -1,8 +1,9 @@
 import { View, Text, Pressable, Image, Dimensions } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { AntDesign } from '@expo/vector-icons';
-import { getImagesForCategories } from '../imageAssets';
-import { useState, useMemo } from 'react';
+import {imageAssets, isImageCategory } from '../imageAssets'; // Add imports
+import {useState, useMemo, useEffect} from 'react';
+import { initializeTtsListeners, playTTS } from '../tts';
 
 // Types
 type SearchParams = {
@@ -51,25 +52,53 @@ export default function Wortbildkarten() {
     const params = useLocalSearchParams<SearchParams>();
     const selectedOptions = params.selectedOptions ?? '';
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [showingSolution, setShowingSolution] = useState(false);
 
     const shuffledImages = useMemo(() => {
         const selectedOptionsArray = selectedOptions.split(',');
-        const images = getImagesForCategories(selectedOptionsArray);
+        const images = selectedOptionsArray
+            .filter(isImageCategory)
+            .flatMap(category => 
+                Object.entries(imageAssets[category]).map(([word, image]) => ({
+                    image,
+                    word
+                }))
+            );
         return shuffleArray(images);
     }, [selectedOptions]);
+
+    useEffect(() => {
+        initializeTtsListeners();
+    }, []);
 
     const isFirstImage = currentImageIndex === 0;
     const isLastImage = currentImageIndex === shuffledImages.length - 1;
 
+    const read_word = async (word: string) => {
+        try {
+            await playTTS(word, {
+                voice: "de-DE-Standard-A",
+                onDone: () => {},
+            });
+        } catch (error) {
+        }
+    }
+
+    const showSolution = () => {
+        setShowingSolution(ShowingSolution => !ShowingSolution);
+    }
+
     const handleNext = () => {
         if (!isLastImage) {
             setCurrentImageIndex(prev => prev + 1);
+            setShowingSolution(false);
         }
     };
 
     const handlePrevious = () => {
         if (!isFirstImage) {
             setCurrentImageIndex(prev => prev - 1);
+            setShowingSolution(false);
         }
     };
 
@@ -89,8 +118,24 @@ export default function Wortbildkarten() {
                         disabled={isFirstImage}
                     />
 
+                    <View style={{ marginHorizontal: 64 }}>
+                        {showingSolution ? (
+                            <Text
+                                style={{
+                                    fontSize: IMAGE_SIZE / 4,
+                                    paddingHorizontal: 10,
+                                    width: IMAGE_SIZE * 2,
+                                    flexWrap: 'wrap'
+                                }}
+                                className="text-center text-primary"
+                                numberOfLines={3}
+                                adjustsFontSizeToFit
+                            >
+                                {shuffledImages[currentImageIndex].word}
+                            </Text>
+                        ) : (
                     <Image
-                        source={shuffledImages[currentImageIndex]}
+                        source={shuffledImages[currentImageIndex].image}
                         style={{
                             width: IMAGE_SIZE,
                             height: IMAGE_SIZE,
@@ -98,12 +143,35 @@ export default function Wortbildkarten() {
                         }}
                         resizeMode="contain"
                     />
+                        )}
+                    </View>
+
 
                     <NavigationButton
                         direction="right"
                         onPress={handleNext}
                         disabled={isLastImage}
                     />
+                </View>
+
+                <View className="flex-row justify-center space-x-4">
+                    <Pressable
+                        className="bg-primary px-8 py-4 rounded-xl -translate-x-2"
+                        onPress={() => read_word(shuffledImages[currentImageIndex].word)}
+                    >
+                        <Text className="text-white text-lg font-semibold">Vorlesen</Text>
+                    </Pressable>
+
+
+                    <Pressable
+                        className="bg-accent px-8 py-4 rounded-xl translate-x-2"
+                        onPress={showSolution}
+                    >
+                        <Text className="text-white text-lg font-semibold">
+                            {showingSolution ? "Lösung ausblenden" : "Lösung anzeigen"}
+                        </Text>
+                    </Pressable>
+
                 </View>
                 
                 <Text className="text-6xl text-accent font-bold text-center p-8">
