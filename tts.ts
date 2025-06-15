@@ -23,7 +23,6 @@ export const getAvailableVoices = async (): Promise<Voice[]> => {
 // Function to initialize Text-to-Speech (TTS) settings
 export const initializeTtsListeners = async () => {
     try {
-        console.log('Speech initializatio');
     } catch (error) {
         console.log('Speech initialization failed');
         console.error(error);
